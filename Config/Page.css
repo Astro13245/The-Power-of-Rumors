@@ -1,7 +1,23 @@
-#position-list li {
+#uldiv {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;
+} #position-list {
+    list-style: none;
+    padding: 0;
+} #position-list li {
     float: left;
-} #position-list li div {
-    padding: 8px;
+    margin-right: 50px;
+    margin-bottom: 5px;
 } audio {
     display: none;
+} .People {
+    width: 170px;
+} html {
+    background-color: rgb(37, 12, 80);
+} p {
+    color: white;
+    font-size: 13.15px;
+} html, body, div {
+    margin: 0px;
 }

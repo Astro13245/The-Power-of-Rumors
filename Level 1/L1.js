@@ -1,30 +1,33 @@
-import { movePosition } from './Config/Sort'
+import { movePosition, checkIfPositionIsRight } from '../Config/Sort';
 
-// Create an array of objects representing people in the rumor chain
 let people = [
-    { name: "Person1", position: 2, endingPosition: 1, description: "Heard the rumor first", ifClicked: false},  
-    { name: "Person2", position: 4, endingPosition: 2, description: "Told the rumor to Person 3", ifClicked: false},  
-    { name: "Person3", position: 1, endingPosition: 3, description: "Told the rumor to Person 4", ifClicked: false},  
-    { name: "Person4", position: 3, endingPosition: 4, description: "Told the rumor to Person 5", ifClicked: false },
-    { name: "Person5", position: 2, endingPosition: 5, description: "Heard it last", ifClicked: false}
+    { name: "Person1", position: 2, endingPosition: 1, description: "The Willow Project will release 287 million metric tons of CO2 over 30 years", ifClicked: false },  
+    { name: "Person2", position: 4, endingPosition: 2, description: "The Willow Project will release 287 million metric tons of CO2 over 20 years", ifClicked: false },  
+    { name: "Person3", position: 1, endingPosition: 3, description: "The Willow Project will release 287 million metric tons of CO2 over 15 years", ifClicked: false },  
+    { name: "Person4", position: 3, endingPosition: 4, description: "The Willow Project will release about 250 million metric tons over 5 years", ifClicked: false },
+    { name: "Person5", position: 5, endingPosition: 5, description: "The Willow Project will release 250 million metric tons of CO2", ifClicked: false }
 ];
 
-for (let i = 0; i === people.length; i++){
+for (let i = 0; i === people.length; i++) {
     const person = people[i];
-    document.getElementById(person.name).onclick = () => {
-        if (person.ifClicked === true) {
-            while (person.ifClicked === false) {
-                document.addEventListener('keydown', function(event) {
-                    if (event.keyCode === 37) {
-                        movePosition(person.position, "right");
-                    }
-                    else if (event.keyCode === 39) {
-                        movePosition(person.position, "left")
-                    }
-                  });
-                  
-            }
-            document.removeEventListener
+    const element = document.getElementById('position' + (person.position));
+
+    element.addEventListener('click', function() {
+        if (!person.ifClicked) {
+            person.ifClicked = true;
+            document.addEventListener('keydown', handleKeyDown);
         }
-    };
+    });
 }
+
+function handleKeyDown(event) {
+    const key = event.key;
+    if (key === 'ArrowRight') {
+        movePosition(person.position, "right");
+    } else if (key === 'ArrowLeft') {
+        movePosition(person.position, "left");
+    }
+}
+
+// Remember to remove the event listener when necessary
+// document.removeEventListener('keydown', handleKeyDown);
