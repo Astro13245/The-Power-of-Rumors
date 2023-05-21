@@ -1,0 +1,7 @@
+#position-list li {
+    float: left;
+} #position-list li div {
+    padding: 8px;
+} audio {
+    display: none;
+}
