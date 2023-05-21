@@ -17,12 +17,13 @@ function movePerson(position, dir) {
 }
 
 function checkIfPositionIsRight(people){
+    let numberOfPeopleInPosition = 0;
+    let numberOfPeopleInNotPosition = 0;
     for (let i = 0; i < people; i++) {
         if (people[i].position === people[i].endingPosition) {
-
-        }
-        else {
-            break;
+            numberOfPeopleInPosition++;
+        } else {
+            numberOfPeopleInNotPosition++;
         }
     }
 }
