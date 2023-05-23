@@ -1,4 +1,4 @@
-import { movePosition, checkIfPositionIsRight } from '../Config/Sort';
+import { movePerson, checkIfPositionIsRight } from '../Config/Sort';
 
 const music = new Audio('/Music/track_1.wav');
 music.play();
@@ -30,9 +30,9 @@ for (let i = 0; i === people.length; i++) {
 function handleKeyDown(event) {
     const key = event.key;
     if (key === 'ArrowRight') {
-        movePosition(person.position, "right");
+        movePerson(person.position, "right");
     } else if (key === 'ArrowLeft') {
-        movePosition(person.position, "left");
+        movePerson(person.position, "left");
     }
 }
 
